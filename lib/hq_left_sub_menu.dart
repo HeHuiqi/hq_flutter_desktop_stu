@@ -34,7 +34,7 @@ class _HqLeftSubMenuState extends State<HqLeftSubMenu> {
         color: Colors.white,
         child: Column(
           children: widget.items
-              .map((e) => HqLeftSuMenuItem(
+              .map((e) => HqLeftSubMenuItem(
                     item: e,
                     onTap: () {
                       setState(() {
@@ -49,18 +49,18 @@ class _HqLeftSubMenuState extends State<HqLeftSubMenu> {
   }
 }
 
-class HqLeftSuMenuItem extends StatefulWidget {
+class HqLeftSubMenuItem extends StatefulWidget {
   final LeftNavigationBarItem item;
   final bool active;
   final void Function()? onTap;
-  const HqLeftSuMenuItem(
+  const HqLeftSubMenuItem(
       {super.key, required this.item, this.active = false, this.onTap});
 
   @override
-  State<HqLeftSuMenuItem> createState() => _HqLeftSuMenuItemState();
+  State<HqLeftSubMenuItem> createState() => _HqLeftSubMenuItemState();
 }
 
-class _HqLeftSuMenuItemState extends State<HqLeftSuMenuItem> {
+class _HqLeftSubMenuItemState extends State<HqLeftSubMenuItem> {
   bool _isHover = false;
   void _onTap() {
     if (widget.onTap != null) {

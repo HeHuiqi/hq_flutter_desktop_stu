@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HqShopListPage extends StatefulWidget {
-  const HqShopListPage({super.key});
+class HqOrderListPage extends StatefulWidget {
+  const HqOrderListPage({super.key});
 
   @override
-  State<HqShopListPage> createState() => _HqShopListPageState();
+  State<HqOrderListPage> createState() => _HqOrderListPageState();
 }
 
-class _HqShopListPageState extends State<HqShopListPage> {
+class _HqOrderListPageState extends State<HqOrderListPage> {
   @override
   Widget build(BuildContext context) {
     //通过Navigator组件包裹可以实现子路由跳转
@@ -17,20 +17,15 @@ class _HqShopListPageState extends State<HqShopListPage> {
         return MaterialPageRoute(
           builder: (context) {
             return Scaffold(
-                body: SizedBox(
-              width: 1064,
-              child: GridView.count(
-                crossAxisCount: 4,
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: List.generate(
-                  50,
-                  (index) => HqShopOrderListItem(index: index),
+              body: Center(
+                child: ListView(
+                  children: List.generate(
+                    50,
+                    (index) => HqShopOrderListItem(index: index),
+                  ),
                 ),
               ),
-            ));
+            );
           },
         );
       },
@@ -49,8 +44,12 @@ class HqShopOrderListItem extends StatefulWidget {
 class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      child: GestureDetector(
+    return Column(children: [
+      ListTile(
+        leading: Icon(Icons.airplanemode_active),
+        subtitle: Text('2023-05-01'),
+        trailing: Icon(Icons.arrow_forward_ios),
+        title: Text('订单 ${widget.index}'),
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -60,26 +59,15 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
                     title: Text('订单 ${widget.index}'),
                   ),
                   body: Center(
-                    child: Text('订单 ${widget.index}'),
+                    child: Text('订单详情页 '),
                   ),
                 );
               },
             ),
           );
         },
-        child: Container(
-          color: const Color.fromARGB(255, 164, 54, 215),
-          padding: EdgeInsets.only(top: 4),
-          child: Column(
-            children: [
-              Image.asset('assets/images/shop_item.png',
-                  height: 200, fit: BoxFit.fitHeight),
-              Text('商品 ${widget.index}'),
-              Text('￥ 30000'),
-            ],
-          ),
-        ),
       ),
-    );
+      Divider(),
+    ]);
   }
 }

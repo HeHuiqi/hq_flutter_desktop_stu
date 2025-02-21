@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/hq_left_nav_menu.dart';
 import 'package:hq_flutter_desktop_stu/hq_left_sub_menu.dart';
+import 'package:hq_flutter_desktop_stu/shop/hq_order_list_page.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_shop_list_page.dart';
 
 class HqContentPage2 extends StatefulWidget {
@@ -35,6 +36,9 @@ class _HqContentPage2State extends State<HqContentPage2> {
   Widget _content() {
     if (selectedIndex == 0) {
       return HqShopListPage();
+    }
+    if (selectedIndex == 1) {
+      return HqOrderListPage();
     }
     return Text(items[selectedIndex].label);
   }

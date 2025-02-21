@@ -35,9 +35,11 @@ class _HqMainPageState extends State<HqMainPage> {
             margin: EdgeInsets.only(left: 10),
             child: CircleAvatar(
               backgroundColor: Color.fromARGB(255, 11, 18, 32),
-              child: ClipOval(
-                child: Image.asset('assets/images/app_logo.gif',
-                    width: 40, height: 40, fit: BoxFit.fitHeight),
+              child: Image.asset(
+                'assets/images/app_logo.gif',
+                width: 40,
+                height: 40,
+                fit: BoxFit.fitHeight,
               ),
             )),
         title: Text("摩陀娑罗", style: TextStyle(color: Colors.white)),

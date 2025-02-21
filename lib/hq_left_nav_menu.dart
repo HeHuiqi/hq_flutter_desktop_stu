@@ -15,8 +15,7 @@ class LeftNavigationBarItem {
 class HqLeftNavMenu extends StatefulWidget {
   final List<LeftNavigationBarItem> items;
   final void Function(int index)? onSelectedIndex;
-  const HqLeftNavMenu({Key? key, required this.items, this.onSelectedIndex})
-      : super(key: key);
+  const HqLeftNavMenu({super.key, required this.items, this.onSelectedIndex});
   static HqLeftNavMenu defaultMenu([Function(int index)? onSelectedIndex]) {
     return HqLeftNavMenu(
       items: [
@@ -50,7 +49,7 @@ class _HqLeftNavMenuState extends State<HqLeftNavMenu> {
       // padding: const EdgeInsets.only(top: 16),
       child: Column(
         children: widget.items
-            .map((e) => LeftNavigationBarItemWidget(
+            .map((e) => HqLeftNavSubMenuItem(
                   item: e,
                   onTap: () {
                     setState(() {
@@ -66,20 +65,18 @@ class _HqLeftNavMenuState extends State<HqLeftNavMenu> {
   }
 }
 
-class LeftNavigationBarItemWidget extends StatefulWidget {
+class HqLeftNavSubMenuItem extends StatefulWidget {
   final LeftNavigationBarItem item;
   final bool active;
   final void Function()? onTap;
-  const LeftNavigationBarItemWidget(
+  const HqLeftNavSubMenuItem(
       {super.key, required this.item, this.active = false, this.onTap});
 
   @override
-  State<LeftNavigationBarItemWidget> createState() =>
-      _LeftNavigationBarItemWidgetState();
+  State<HqLeftNavSubMenuItem> createState() => _HqLeftNavSubMenuItemState();
 }
 
-class _LeftNavigationBarItemWidgetState
-    extends State<LeftNavigationBarItemWidget> {
+class _HqLeftNavSubMenuItemState extends State<HqLeftNavSubMenuItem> {
   bool _isHover = false;
   void _onTap() {
     if (widget.onTap != null) {
@@ -106,11 +103,16 @@ class _LeftNavigationBarItemWidgetState
           onTap: _onTap,
           onHover: _onHover,
           child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 500),
               padding: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
                   // borderRadius: BorderRadius.circular(8),
-                  color: active ? activeColor : color),
+                  gradient: LinearGradient(
+                      colors: active
+                          ? [Colors.blue, Colors.red]
+                          : [Colors.transparent, Colors.transparent],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
