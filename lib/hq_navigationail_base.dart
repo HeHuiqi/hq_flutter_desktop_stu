@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/hq_temp_page.dart';
@@ -88,7 +89,7 @@ class _HqNavigationailBaseState extends State<HqNavigationailBase> {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => HqTempPage()));
+                    CupertinoPageRoute(builder: (context) => HqTempPage()));
               },
               child: TestContent(
                 content: '消息',

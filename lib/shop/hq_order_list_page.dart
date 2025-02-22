@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HqOrderListPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _HqOrderListPageState extends State<HqOrderListPage> {
     // https://juejin.cn/post/7168662360230461454
     return Navigator(
       onGenerateRoute: (settings) {
-        return MaterialPageRoute(
+        return CupertinoPageRoute(
           builder: (context) {
             return Scaffold(
               body: Center(
@@ -53,7 +54,7 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
         title: Text('订单 ${widget.index}'),
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(
+            CupertinoPageRoute(
               builder: (context) {
                 return Scaffold(
                   appBar: AppBar(

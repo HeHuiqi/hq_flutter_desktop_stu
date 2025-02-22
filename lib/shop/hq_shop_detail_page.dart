@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/keys/hq_global_key.dart';
 import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
@@ -34,7 +35,7 @@ class _HqShopDetailPageState extends State<HqShopDetailPage> {
   void _goLogin(BuildContext context) {
     BuildContext ct = navigatorStateKey.currentState?.context ?? context;
     Navigator.of(ct).push(
-      MaterialPageRoute(
+      CupertinoPageRoute(
         builder: (context) {
           return Scaffold(
             appBar: AppBar(

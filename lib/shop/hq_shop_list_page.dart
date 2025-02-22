@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_shop_detail_page.dart';
 import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
@@ -18,7 +19,7 @@ class _HqShopListPageState extends State<HqShopListPage> {
     // https://juejin.cn/post/7168662360230461454
     return Navigator(
       onGenerateRoute: (settings) {
-        return MaterialPageRoute(
+        return CupertinoPageRoute(
           builder: (context) {
             return Scaffold(
               body: SizedBox(
@@ -58,7 +59,7 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
+            CupertinoPageRoute(builder: (context) {
               return HqShopDetailPage();
             }),
           );
