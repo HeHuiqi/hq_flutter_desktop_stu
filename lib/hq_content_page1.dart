@@ -26,11 +26,12 @@ class _HqContentPage1State extends State<HqContentPage1> {
       children: [
         SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                // 'assets/images/airbus_a302.jpg',
-                'assets/images/msfs2020.png',
+                'assets/images/airbus_a302.jpg',
+                // 'assets/images/msfs2020.png',
                 // fit: BoxFit.fitHeight,
               ),
               Container(
