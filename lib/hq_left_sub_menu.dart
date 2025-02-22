@@ -7,20 +7,6 @@ class HqLeftSubMenu extends StatefulWidget {
   const HqLeftSubMenu({Key? key, required this.items, this.onSelectedIndex})
       : super(key: key);
 
-  static HqLeftSubMenu defaultMenu([Function(int index)? onSelectedIndex]) {
-    final List<LeftNavigationBarItem> items = [
-      LeftNavigationBarItem(
-          icon: Icons.message_outlined, label: '消息-sub1', id: 0),
-      LeftNavigationBarItem(
-          icon: Icons.video_camera_back_outlined, label: '消息-sub2', id: 1),
-      LeftNavigationBarItem(icon: Icons.book_outlined, label: '消息-sub3', id: 2),
-    ];
-    return HqLeftSubMenu(
-      items: items,
-      onSelectedIndex: onSelectedIndex,
-    );
-  }
-
   @override
   State<HqLeftSubMenu> createState() => _HqLeftSubMenuState();
 }

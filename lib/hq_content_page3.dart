@@ -17,18 +17,6 @@ class _HqContentPage3State extends State<HqContentPage3> {
     LeftNavigationBarItem(icon: Icons.book_outlined, label: '固件解绑', id: 2),
   ];
   int selectedIndex = 0;
-  // Widget _content() {
-  //   switch (selectedIndex) {
-  //     case 0:
-  //       return Text('通讯-sub1');
-  //     case 1:
-  //       return Text('通讯-sub2');
-  //     case 2:
-  //       return Text('通讯-sub3');
-  //     default:
-  //       return Text('通讯');
-  //   }
-  // }
   Widget _content() {
     return Text(items[selectedIndex].label);
   }
@@ -55,6 +43,7 @@ class _HqContentPage3State extends State<HqContentPage3> {
           )
         ],
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/hq_left_nav_menu.dart';
 import 'package:hq_flutter_desktop_stu/hq_left_sub_menu.dart';
+import 'package:hq_flutter_desktop_stu/shop/hq_fapiao_page.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_order_list_page.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_shop_list_page.dart';
 
@@ -21,24 +22,15 @@ class _HqContentPage2State extends State<HqContentPage2> {
     LeftNavigationBarItem(icon: Icons.book_outlined, label: '我的信息', id: 4),
   ];
   int selectedIndex = 0;
-  // Widget _content() {
-  //   switch (selectedIndex) {
-  //     case 0:
-  //       return Text('会议-sub1');
-  //     case 1:
-  //       return Text('会议-sub2');
-  //     case 2:
-  //       return Text('会议-sub3');
-  //     default:
-  //       return Text('会议');
-  //   }
-  // }
   Widget _content() {
     if (selectedIndex == 0) {
       return HqShopListPage();
     }
     if (selectedIndex == 1) {
       return HqOrderListPage();
+    }
+    if (selectedIndex == 2) {
+      return HqFapiaoTabsPage();
     }
     return Text(items[selectedIndex].label);
   }
@@ -65,6 +57,7 @@ class _HqContentPage2State extends State<HqContentPage2> {
           )
         ],
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hq_flutter_desktop_stu/shop_cart/hq_shop_cart_page.dart';
+import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
+import 'package:provider/provider.dart';
 
 class LeftNavigationBarItem {
   final int id;
@@ -42,24 +45,75 @@ class _HqLeftNavMenuState extends State<HqLeftNavMenu> {
     super.initState();
   }
 
+  Widget _buildItems() {
+    return Column(
+      children: widget.items
+          .map((e) => HqLeftNavSubMenuItem(
+                item: e,
+                onTap: () {
+                  setState(() {
+                    widget.onSelectedIndex?.call(e.id);
+                    seleftedIndex = e.id;
+                  });
+                },
+                active: e.id == seleftedIndex,
+              ))
+          .toList(),
+    );
+  }
+
+  Widget _buildShopCart(BuildContext context) {
+    return Consumer<HqShopCartNotifier>(builder: (context, shopCart, child) {
+      return SizedBox(
+          height: 80,
+          width: 80,
+          child: Stack(
+            children: [
+              IconButton(
+                color: Colors.white,
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  size: 40,
+                ),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return HqShopCartPage();
+                  }));
+                },
+              ),
+              if (shopCart.shopCount > 0)
+                Positioned(
+                    right: 25,
+                    top: 5,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Text(
+                          '${shopCart.shopCount}',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
+                      ),
+                    ))
+            ],
+          ));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: const Color.fromARGB(255, 64, 81, 191),
       // padding: const EdgeInsets.only(top: 16),
       child: Column(
-        children: widget.items
-            .map((e) => HqLeftNavSubMenuItem(
-                  item: e,
-                  onTap: () {
-                    setState(() {
-                      widget.onSelectedIndex?.call(e.id);
-                      seleftedIndex = e.id;
-                    });
-                  },
-                  active: e.id == seleftedIndex,
-                ))
-            .toList(),
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildItems(),
+          _buildShopCart(context),
+        ],
       ),
     );
   }

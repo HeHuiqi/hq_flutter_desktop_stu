@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hq_flutter_desktop_stu/shop/hq_shop_detail_page.dart';
+import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
+import 'package:hq_flutter_desktop_stu/widgets/hq_button.dart';
+import 'package:provider/provider.dart';
 
 class HqShopListPage extends StatefulWidget {
   const HqShopListPage({super.key});
@@ -17,20 +21,21 @@ class _HqShopListPageState extends State<HqShopListPage> {
         return MaterialPageRoute(
           builder: (context) {
             return Scaffold(
-                body: SizedBox(
-              width: 1064,
-              child: GridView.count(
-                crossAxisCount: 4,
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: List.generate(
-                  50,
-                  (index) => HqShopOrderListItem(index: index),
+              body: SizedBox(
+                child: GridView.count(
+                  crossAxisCount: 4,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: List.generate(
+                    50,
+                    (index) => HqShopOrderListItem(index: index),
+                  ),
                 ),
               ),
-            ));
+              backgroundColor: Colors.white,
+            );
           },
         );
       },
@@ -53,32 +58,40 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return Scaffold(
-                  appBar: AppBar(
-                    title: Text('订单 ${widget.index}'),
-                  ),
-                  body: Center(
-                    child: Text('订单 ${widget.index}'),
-                  ),
-                );
-              },
-            ),
+            MaterialPageRoute(builder: (context) {
+              return HqShopDetailPage();
+            }),
           );
         },
         child: Container(
-          color: const Color.fromARGB(255, 164, 54, 215),
-          padding: EdgeInsets.only(top: 4),
-          child: Column(
-            children: [
-              Image.asset('assets/images/shop_item.png',
-                  height: 200, fit: BoxFit.fitHeight),
-              Text('商品 ${widget.index}'),
-              Text('￥ 30000'),
-            ],
-          ),
-        ),
+            color: Colors.black,
+            padding: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 15),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Image.asset('assets/images/shop_item.png',
+                      height: 240, fit: BoxFit.fitHeight),
+                ),
+                SizedBox(height: 5),
+                Text('miniFTD 2025 ${widget.index}',
+                    style: TextStyle(fontSize: 18, color: Colors.white)),
+                Text('￥30000',
+                    style: TextStyle(fontSize: 20, color: Colors.white)),
+                SizedBox(height: 10),
+                HqButton(
+                  onPressed: () {
+                    print('加入购物车');
+                    //获取提供者
+                    HqShopCartNotifier shopCart =
+                        context.read<HqShopCartNotifier>();
+                    //改变值，触发通知
+                    shopCart.addShopCountOne();
+                  },
+                  child: Text('加入购物车',
+                      style: TextStyle(color: Colors.white, fontSize: 12)),
+                ),
+              ],
+            )),
       ),
     );
   }

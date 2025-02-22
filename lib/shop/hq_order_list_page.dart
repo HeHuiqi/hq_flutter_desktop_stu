@@ -25,6 +25,7 @@ class _HqOrderListPageState extends State<HqOrderListPage> {
                   ),
                 ),
               ),
+              backgroundColor: Colors.white,
             );
           },
         );
@@ -61,6 +62,7 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
                   body: Center(
                     child: Text('订单详情页 '),
                   ),
+                  backgroundColor: Colors.white,
                 );
               },
             ),
