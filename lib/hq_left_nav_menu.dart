@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hq_flutter_desktop_stu/shop_cart/hq_shop_cart_page.dart';
 import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
@@ -77,7 +78,7 @@ class _HqLeftNavMenuState extends State<HqLeftNavMenu> {
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
+                      .push(CupertinoPageRoute(builder: (context) {
                     return HqShopCartPage();
                   }));
                 },
