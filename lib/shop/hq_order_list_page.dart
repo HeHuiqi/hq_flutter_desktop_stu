@@ -8,7 +8,10 @@ class HqOrderListPage extends StatefulWidget {
   State<HqOrderListPage> createState() => _HqOrderListPageState();
 }
 
-class _HqOrderListPageState extends State<HqOrderListPage> {
+class _HqOrderListPageState extends State<HqOrderListPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     //通过Navigator组件包裹可以实现子路由跳转

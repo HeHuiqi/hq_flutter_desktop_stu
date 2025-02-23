@@ -4,6 +4,7 @@ import 'package:hq_flutter_desktop_stu/hq_left_sub_menu.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_fapiao_page.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_order_list_page.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_shop_list_page.dart';
+import 'package:hq_flutter_desktop_stu/shop/hq_tab_page.dart';
 
 class HqContentPage2 extends StatefulWidget {
   const HqContentPage2({super.key});
@@ -22,17 +23,28 @@ class _HqContentPage2State extends State<HqContentPage2> {
     LeftNavigationBarItem(icon: Icons.book_outlined, label: '我的信息', id: 4),
   ];
   int selectedIndex = 0;
+  // Widget _content() {
+  //   if (selectedIndex == 0) {
+  //     return const HqShopListPage();
+  //   }
+  //   if (selectedIndex == 1) {
+  //     return const HqOrderListPage();
+  //   }
+  //   if (selectedIndex == 2) {
+  //     return const HqFapiaoTabsPage();
+  //   }
+  //   return Text(items[selectedIndex].label);
+  // }
+
   Widget _content() {
-    if (selectedIndex == 0) {
-      return HqShopListPage();
-    }
-    if (selectedIndex == 1) {
-      return HqOrderListPage();
-    }
-    if (selectedIndex == 2) {
-      return HqFapiaoTabsPage();
-    }
-    return Text(items[selectedIndex].label);
+    // https://juejin.cn/post/6973534234233274404
+    return IndexedStack(index: selectedIndex, children: [
+      const HqShopListPage(),
+      const HqOrderListPage(),
+      const HqTabPage(),
+      Text(items[selectedIndex].label),
+      Text(items[selectedIndex].label),
+    ]);
   }
 
   @override

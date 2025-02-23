@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:hq_flutter_desktop_stu/hq_%20sidebarx_stu_page.dart';
 import 'package:hq_flutter_desktop_stu/hq_demo_page.dart';
 import 'package:hq_flutter_desktop_stu/hq_left_nav_menu.dart';
 import 'package:hq_flutter_desktop_stu/hq_main_page.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
 
       // home: HqNavigationailBase(),
       home: HqMainPage(),
+      // home: HqSiderBarPage(),
       // home: HqDemoPage(),
     );
   }

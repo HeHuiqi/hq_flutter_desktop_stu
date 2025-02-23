@@ -28,13 +28,13 @@ class _HqFapiaoTabsPageState extends State<HqFapiaoTabsPage>
           children: [
             PageStorage(
               bucket: PageStorageBucket(),
-              child: MyPage1(
+              child: const MyPage1(
                 key: PageStorageKey<String>('page1'),
               ),
             ),
             PageStorage(
               bucket: PageStorageBucket(),
-              child: MyPage2(
+              child: const MyPage2(
                 key: PageStorageKey<String>('page2'),
               ),
             ),
