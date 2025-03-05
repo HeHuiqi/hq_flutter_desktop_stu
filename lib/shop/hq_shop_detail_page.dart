@@ -44,7 +44,7 @@ class _HqShopDetailPageState extends State<HqShopDetailPage> {
             body: Center(
               child: Text('开始登录'),
             ),
-            backgroundColor: Colors.white,
+            //backgroundColor: Colors.white,
           );
         },
       ),
@@ -54,8 +54,11 @@ class _HqShopDetailPageState extends State<HqShopDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(backgroundColor: Colors.white, scrolledUnderElevation: 0.0),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        // scrolledUnderElevation: 0.0,
+        // elevation: 0.0,
+      ),
       body: SingleChildScrollView(
         child: Column(children: [
           _buildHeader(),
@@ -63,7 +66,7 @@ class _HqShopDetailPageState extends State<HqShopDetailPage> {
           _buildFooter(),
         ]),
       ),
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
     );
   }
 
@@ -237,7 +240,7 @@ class _HqShopDetailPageState extends State<HqShopDetailPage> {
         RichText(
           text: TextSpan(
             text: '价格：',
-            style: TextStyle(color: Colors.black, fontSize: 26),
+            style: TextStyle(fontSize: 26, color: Colors.black),
             children: <TextSpan>[
               TextSpan(
                 text: 'CNY 28888',

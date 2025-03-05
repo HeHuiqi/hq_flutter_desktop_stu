@@ -44,8 +44,11 @@ class _HqFapiaoTabsPageState extends State<HqFapiaoTabsPage>
       backgroundColor: Colors.white,
       bottomNavigationBar: TabBar(
         controller: _controller,
-        tabs: const [
-          Tab(text: 'Page 1'),
+        tabs: [
+          Tab(
+            text: 'Page 1',
+            child: Icon(Icons.access_alarm),
+          ),
           Tab(text: 'Page 2'),
         ],
       ),
@@ -75,7 +78,7 @@ class _MyPage1State extends State<MyPage1> {
     return Center(
       child: Column(
         children: [
-          Text('Count is $count'),
+          Text('Count1 is $count'),
           ElevatedButton(
             onPressed: () {
               setState(() {
@@ -113,7 +116,7 @@ class _MyPage2State extends State<MyPage2> {
     return Center(
       child: Column(
         children: [
-          Text('Count is $count'),
+          Text('Count2 is $count'),
           ElevatedButton(
             onPressed: () {
               setState(() {

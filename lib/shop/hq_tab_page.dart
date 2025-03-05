@@ -53,10 +53,21 @@ class _HqTabPageState extends State<HqTabPage>
           ),
         ),
         controller: _controller,
-        tabs: const [
+        tabs: [
           Tab(
-            text: 'TabPage 1',
-            height: 40,
+            height: 80,
+            child: Column(
+              children: [
+                Text(
+                  'TabPage 1',
+                  style: TextStyle(fontSize: 12, color: Colors.black),
+                ),
+                Text(
+                  'TabPage 1',
+                  style: TextStyle(fontSize: 12, color: Colors.black),
+                ),
+              ],
+            ),
           ),
           Tab(
             text: 'TabPage 2',

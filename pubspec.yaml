@@ -40,7 +40,13 @@ dependencies:
   # 屏幕适配
   flutter_screenutil: ^5.9.3
   windows_toast: ^0.0.3
+  # 侧滑栏
   sidebarx: ^0.17.1
+  tdesign_flutter: ^0.1.8
+  fluent_ui: ^4.11.2
+  shared_preferences: ^2.5.2
+  # 工具库
+  # flustars_flutter3: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +76,12 @@ flutter:
     - assets/images/airbus_a302.jpg
     - assets/images/shop_item.png
     - assets/images/msfs2020.png
+    - assets/images/avtart_180x180.png
+    - assets/images/rect_icon.png
+    - assets/images/down_arrow.png
+    - assets/images/device_op.jpg
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hq_flutter_desktop_stu/settings/hq_setting_page.dart';
 import 'package:hq_flutter_desktop_stu/shop_cart/hq_shop_cart_page.dart';
 import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
 import 'package:provider/provider.dart';
@@ -107,7 +108,7 @@ class _HqLeftNavMenuState extends State<HqLeftNavMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 64, 81, 191),
+      color: Theme.of(context).primaryColor,
       // padding: const EdgeInsets.only(top: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,8 +172,11 @@ class _HqLeftNavSubMenuItemState extends State<HqLeftNavSubMenuItem> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(widget.item.icon,
-                      color: active ? Colors.white : Colors.white),
+                  Icon(
+                    widget.item.icon,
+                    color: active ? Colors.white : Colors.white,
+                    size: 30,
+                  ),
                   SizedBox(width: 8),
                   Text(
                     widget.item.label,

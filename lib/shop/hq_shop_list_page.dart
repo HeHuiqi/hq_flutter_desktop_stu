@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hq_flutter_desktop_stu/keys/hq_global_key.dart';
 import 'package:hq_flutter_desktop_stu/shop/hq_shop_detail_page.dart';
 import 'package:hq_flutter_desktop_stu/status/hq_shop_cart_notifier.dart';
+import 'package:hq_flutter_desktop_stu/toast/hq_toast.dart';
 import 'package:hq_flutter_desktop_stu/widgets/hq_button.dart';
 import 'package:provider/provider.dart';
 
@@ -18,16 +20,20 @@ class _HqShopListPageState extends State<HqShopListPage>
   bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     //通过Navigator组件包裹可以实现子路由跳转
     // https://juejin.cn/post/7168662360230461454
+
     return Navigator(
       onGenerateRoute: (settings) {
         return CupertinoPageRoute(
           builder: (context) {
+            double width = MediaQuery.of(context).size.width;
+            print("Navigator list page build width $width");
             return Scaffold(
               body: SizedBox(
                 child: GridView.count(
-                  crossAxisCount: 4,
+                  crossAxisCount: width > 1600 ? 6 : 4,
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   crossAxisSpacing: 10,
@@ -38,7 +44,7 @@ class _HqShopListPageState extends State<HqShopListPage>
                   ),
                 ),
               ),
-              backgroundColor: Colors.white,
+              //backgroundColor: Colors.white,
             );
           },
         );
@@ -90,6 +96,9 @@ class _HqShopOrderListItemState extends State<HqShopOrderListItem> {
                         context.read<HqShopCartNotifier>();
                     //改变值，触发通知
                     shopCart.addShopCountOne();
+                    // var ctx = navigatorStateKey.currentState?.overlay;
+                    // HqToast.showToastWithOverlayState(ctx, '加入购物车成功');
+                    HqToast.showToastContext(context, '加入购物车成功');
                   },
                   child: Text('加入购物车',
                       style: TextStyle(color: Colors.white, fontSize: 12)),
